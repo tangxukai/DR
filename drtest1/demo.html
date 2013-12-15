@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <style type="text/css">      
+      #map-canvas { width:800px; height:540px }
+      #map-canvas img {
+        max-width: none;
+      }
+      .header {      	
+      	font-size: 76;
+      	font-weight: bold;
+      	text-align: center;
+      	color: red;
+      	font-family: 'Times New Roman';        
+      }
+      .smallcap {
+      	font-variant:small-caps;
+
+      }
+      .author {
+      	text-align: center;
+      	font-family: 'Time New Roman';
+      	font-style: italic;
+      	font-size:36;        
+      }
+      .edgeViewComp{
+        display: none;
+      }
+      .routeViewComp{
+        display: none;
+      }
+    </style>    
+    
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="js/highcharts/themes/dark-blue.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/drawroute.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCHxkwEWajD2ll7t5xz-Vto_6evt7LCaa8&sensor=false&language=en">
+
+    </script>    
+  </head>
+  <body>
+  	<div class="container">  		 
+       <div>
+          <h1 class="header">V<span class="smallcap">ehicle</span> R<span class="smallcap">outing</span> D<span class="smallcap">emo</span></h1>
+          <h3 class="author"></h3>
+        </div> 		<!--the following line is updated by me-->
+        
+       <!-- <div class="radio">
+          <label><input type="radio" name="files" id="file1" value="euclideanRoute.json" checked>
+          euclideanRoute.json
+          </input></label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="files" id="file2" value="tdRoute.json">
+          tdRoute.json
+          </input></label>
+        </div>
+        -->
+        <input type="file" id="configFile"></input>
+        
+        <button class="btn btn-navbar" onClick="initMap();">GO!</button>
+        
+  		
+		<div id="map-canvas"></div>
+		<p></p>
+		<div class="routeViewComp">
+			<input type="button" onclick="uploadConfig(1)" value="Time Dependent"></input>
+			<input type="button" onclick="uploadConfig(5)" value="TD_Sweep"></input>
+	        <input type="button" onclick="uploadConfig(2)" value="Static" ></input>
+	        <input type="button" onclick="uploadConfig(3)" value="Euclidean"></input>
+			<input type="button" onclick="uploadConfig(4)" value="Euc_Sweep"></input>
+	        <div id="routeInfo">
+	        </div>	        
+		</div>
+    	<div id="chart"></div>		
+  	</div>
+  </body>
+</html>
